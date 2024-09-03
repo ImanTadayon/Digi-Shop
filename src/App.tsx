@@ -1,6 +1,6 @@
-import React from 'react';
-import './index.css';
-import { Header } from './components/layout/Header'; // مطمئن شوید مسیر درست است
+import React from "react";
+import "./index.css";
+import { Header } from "./components/layout/Header";
 
 const App: React.FC = () => {
   return (
@@ -8,6 +8,6 @@ const App: React.FC = () => {
       <Header />
     </div>
   );
-}
+};
 
 export default App;
