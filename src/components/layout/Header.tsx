@@ -1,5 +1,7 @@
 import React from "react";
 import "@fortawesome/fontawesome-free/css/all.min.css";
+import { Link } from "react-router-dom";
+import profilrImage from "../../assets/a4d2481f-9c57-4171-baeb-05ac5e8fc31f.avif";
 
 export const Header: React.FC = () => {
   return (
@@ -10,9 +12,13 @@ export const Header: React.FC = () => {
             <i className="fas fa-shopping-cart"></i>
           </a>
 
-          <a href="#profile" className="text-xl hover:text-gray-300">
-            <i className="fas fa-user"></i>
-          </a>
+          <Link to="/user" className="text-xl hover:text-gray-300">
+            <img
+              src={profilrImage}
+              alt="User"
+              className="w-8 h-8 rounded-full "
+            />
+          </Link>
         </div>
         <h1 className="text-xl font-bold text-center text-blue-100 flex-grow">
           DIGI SHOP
@@ -20,19 +26,19 @@ export const Header: React.FC = () => {
         <nav>
           <ul className="flex space-x-4">
             <li>
-              <a href="#home" className="hover:text-gray-300">
+              <Link to="/home" className="hover:text-gray-300">
                 Home
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#about" className="hover:text-gray-300">
+              <Link to="/about" className="hover:text-gray-300">
                 About
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#contact" className="hover:text-gray-300">
+              <Link to="/contact" className="hover:text-gray-300">
                 Contact
-              </a>
+              </Link>
             </li>
           </ul>
         </nav>
