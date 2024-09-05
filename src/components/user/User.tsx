@@ -2,30 +2,8 @@ import React, { useEffect, useState } from "react";
 import { userApi } from "../../api/api";
 import profilrImage from "../../assets/a4d2481f-9c57-4171-baeb-05ac5e8fc31f.avif";
 import { useNavigate } from "react-router-dom"; // Import useNavigate
-
-interface Address {
-  geolocation: {
-    lat: string;
-    long: string;
-  };
-  city: string;
-  street: string;
-  number: number;
-  zipcode: string;
-}
-
-interface UserData {
-  id: number;
-  email: string;
-  username: string;
-  password: string;
-  phone: string;
-  name: {
-    firstname: string;
-    lastname: string;
-  };
-  address: Address;
-}
+import { FetchMessage } from "./DisplayUserMessage";
+import { UserData } from "./UserProfileData";
 
 export const User: React.FC = () => {
   const [user, setUser] = useState<UserData | null>(null);
@@ -50,22 +28,15 @@ export const User: React.FC = () => {
     fetchUserData();
   }, []);
 
-  if (loading) {
-    return <p>Loading...</p>;
-  }
-
-  if (error) {
-    return <p>{error}</p>;
-  }
-
-  if (!user) {
-    return <p>No user data available</p>;
-  }
+  // user fetch message
+  if (loading) return <FetchMessage message="Loading..." />;
+  if (error) return <FetchMessage message={error} />;
+  if (!user) return <FetchMessage message="No user data available" />;
 
   return (
-    <div className="h-screen bg-slate-300 p-4 flex flex-col justify-center items-center">
+    <div className="h-screen bg-slate-500 p-4 flex flex-col justify-center items-center">
       <div className="bg-gray-100 p-4 rounded-lg shadow-md w-full max-w-sm">
-        <h1 className="text-2xl font-bold mb-4 text-gray-700 text-center">
+        <h1 className="text-xl font-bold mb-4 text-blue-500 text-center">
           User Profile
         </h1>
         <img
@@ -96,7 +67,7 @@ export const User: React.FC = () => {
       <div className="mt-4 w-full max-w-sm">
         <button
           onClick={() => navigate("/")}
-          className="w-full bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded"
+          className="w-full bg-gray-300 hover:bg-gray-400 text-gray-800 hover:text-white font-bold py-2 px-4 rounded"
         >
           Back
         </button>
