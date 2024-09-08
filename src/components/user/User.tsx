@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { userApi } from "../../api/api";
 import profilrImage from "../../assets/a4d2481f-9c57-4171-baeb-05ac5e8fc31f.avif";
-import { useNavigate } from "react-router-dom"; // Import useNavigate
-import { FetchMessage } from "./DisplayUserMessage";
+import { useNavigate } from "react-router-dom";
+import { FetchMessage } from "../../api/DisplayFetchMessage";
 import { UserData } from "./UserProfileData";
 
 export const User: React.FC = () => {
