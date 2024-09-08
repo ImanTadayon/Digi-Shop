@@ -54,13 +54,12 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({
 
   // کاهش تعداد محصول و حذف از سبد اگر تعداد به صفر رسید
   const decrementItem = (id: number) => {
-    setCartItems(
-      (prevItems) =>
-        prevItems
-          .map((item) =>
-            item.id === id ? { ...item, quantity: item.quantity - 1 } : item
-          )
-          .filter((item) => item.quantity > 0) // حذف محصول اگر تعداد به صفر رسید
+    setCartItems((prevItems) =>
+      prevItems
+        .map((item) =>
+          item.id === id ? { ...item, quantity: item.quantity - 1 } : item
+        )
+        .filter((item) => item.quantity > 0)
     );
   };
 
