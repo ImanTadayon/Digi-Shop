@@ -28,7 +28,7 @@ export const User: React.FC = () => {
     fetchUserData();
   }, []);
 
-  // user fetch message
+  // پیامهای مربوط به واکشی دیتای کاربر
   if (loading) return <FetchMessage message="Loading..." />;
   if (error) return <FetchMessage message={error} />;
   if (!user) return <FetchMessage message="No user data available" />;
