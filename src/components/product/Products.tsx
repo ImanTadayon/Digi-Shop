@@ -57,13 +57,6 @@ const Products: React.FC = () => {
   if (loading) return <FetchMessage message="Loading..." />;
 
   const handleAddToCart = (product: Product) => {
-    // console.log("Adding to cart:", {
-    //   id: product.id,
-    //   title: product.title,
-    //   price: product.price,
-    //   quantity: 1,
-    // });
-
     const existingItem = cartItems.find(
       (item: CartItem) => item.id === product.id
     );
